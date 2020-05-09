@@ -63,7 +63,7 @@ namespace PracticeZhilin2020
         {
             if ((sender as TextBox).Text == "Пароль")
                 (sender as TextBox).Text = "";
-            (sender as TextBox).PasswordChar = '*';
+            (sender as TextBox).UseSystemPasswordChar = true;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

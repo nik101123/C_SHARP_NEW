@@ -18,7 +18,7 @@ namespace PracticeZhilin2020
             InitializeComponent();
             firstnameTB.Text = "Имя";
             lastnameTB.Text = "Фамилия";
-            emailTB.Text = "email";
+            emailTB.Text = "Email";
             phoneTB.Text = "Телефон";
             LoginTB.Text = "Логин";
             PasswordTB.Text = "Пароль";
@@ -30,7 +30,7 @@ namespace PracticeZhilin2020
                 return;          
             if (lastnameTB.Text == "" || lastnameTB.Text == "Фамилия")
                 return;
-            if (emailTB.Text == "" || emailTB.Text == "email")
+            if (emailTB.Text == "" || emailTB.Text == "Email")
                 return;
             if (phoneTB.Text == "" || phoneTB.Text == "Телефон")
                 return;
@@ -90,14 +90,58 @@ namespace PracticeZhilin2020
             }
         }
 
-        private void firstnameTB_TextChanged(object sender, EventArgs e)
+        private void RegistrationForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void RegistrationForm_Load(object sender, EventArgs e)
+        private void ClearN(object sender, MouseEventArgs e)
         {
+            if ((sender as TextBox).Text == "Имя")
+                (sender as TextBox).Text = "";
+        }
 
+        private void ClearF(object sender, MouseEventArgs e)
+        {
+            if ((sender as TextBox).Text == "Фамилия")
+                (sender as TextBox).Text = "";
+        }
+
+        private void ClearE(object sender, MouseEventArgs e)
+        {
+            if ((sender as TextBox).Text == "Email")
+                (sender as TextBox).Text = "";
+        }
+
+        private void ClearP(object sender, MouseEventArgs e)
+        {
+            if ((sender as TextBox).Text == "+7-___-___-__-__")
+                (sender as TextBox).Text = "";
+        }
+
+        private void Phone(object sender, EventArgs e)
+        {
+            if ((sender as TextBox).Text == "Телефон")
+                (sender as TextBox).Text = "+7-___-___-__-__";
+        }
+
+        private void Def(object sender, EventArgs e)
+        {
+            if ((sender as TextBox).Text == "+7-___-___-__-__" | (sender as TextBox).Text == "")
+                (sender as TextBox).Text = "Телефон";
+        }
+
+        private void ClearL(object sender, MouseEventArgs e)
+        {
+            if ((sender as TextBox).Text == "Логин")
+                (sender as TextBox).Text = "";
+        }
+
+        private void Pass(object sender, MouseEventArgs e)
+        {
+            if ((sender as TextBox).Text == "Пароль")
+                (sender as TextBox).Text = "";
+            (sender as TextBox).UseSystemPasswordChar = true;
         }
     }
 }

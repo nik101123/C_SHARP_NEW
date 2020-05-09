@@ -93,9 +93,10 @@
             // PasswordField
             // 
             this.PasswordField.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.PasswordField.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PasswordField.Location = new System.Drawing.Point(92, 90);
             this.PasswordField.Name = "PasswordField";
-            this.PasswordField.Size = new System.Drawing.Size(100, 22);
+            this.PasswordField.Size = new System.Drawing.Size(100, 24);
             this.PasswordField.TabIndex = 2;
             this.PasswordField.Text = "Пароль";
             this.PasswordField.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Pass);
@@ -103,10 +104,11 @@
             // LoginField
             // 
             this.LoginField.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.LoginField.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginField.Location = new System.Drawing.Point(92, 62);
             this.LoginField.Name = "LoginField";
-            this.LoginField.Size = new System.Drawing.Size(100, 22);
-            this.LoginField.TabIndex = 2;
+            this.LoginField.Size = new System.Drawing.Size(100, 24);
+            this.LoginField.TabIndex = 1;
             this.LoginField.Text = "Логин";
             this.LoginField.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Clear);
             // 
