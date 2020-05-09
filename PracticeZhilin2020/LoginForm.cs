@@ -43,13 +43,13 @@ namespace PracticeZhilin2020
         
             if(datatable.Rows.Count > 0)
             {
-                this.Hide();
                 HeadForm headForm = new HeadForm(user_login);
                 headForm.Show();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("No");
+                MessageBox.Show("Неправильный логин или пароль!");
 
             }
         }

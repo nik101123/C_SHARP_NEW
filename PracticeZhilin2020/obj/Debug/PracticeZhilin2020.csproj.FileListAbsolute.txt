@@ -82,3 +82,5 @@ C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhil
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.csproj.CopyComplete
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.exe
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.pdb
+C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.TestForm.resources
+C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.TopPForm.resources

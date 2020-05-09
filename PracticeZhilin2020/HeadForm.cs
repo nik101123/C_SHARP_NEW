@@ -41,6 +41,13 @@ namespace PracticeZhilin2020
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            StartForm startForm = new StartForm();
+            startForm.Show();
+            Close();
+        }
     }
 }
 
