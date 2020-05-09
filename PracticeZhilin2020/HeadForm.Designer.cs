@@ -69,6 +69,7 @@
             this.Controls.Add(this.AutorizatePanel);
             this.Name = "HeadForm";
             this.Text = "HeadForm";
+            this.Load += new System.EventHandler(this.HeadForm_Load);
             this.AutorizatePanel.ResumeLayout(false);
             this.AutorizatePanel.PerformLayout();
             this.ResumeLayout(false);

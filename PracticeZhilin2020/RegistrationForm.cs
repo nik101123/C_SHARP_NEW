@@ -94,5 +94,10 @@ namespace PracticeZhilin2020
         {
 
         }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

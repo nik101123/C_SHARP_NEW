@@ -167,6 +167,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "RegistrationForm";
             this.Text = "Регистрация";
+            this.Load += new System.EventHandler(this.RegistrationForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

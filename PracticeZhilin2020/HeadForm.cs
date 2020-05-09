@@ -36,6 +36,11 @@ namespace PracticeZhilin2020
             }
 
         }
+
+        private void HeadForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
