@@ -82,7 +82,6 @@ C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhil
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.csproj.CopyComplete
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.exe
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.pdb
-C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.TestForm.resources
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.TopPForm.resources
 F:\program files\OpenServer\OpenServer\PROJECTS\C_SHARP_NEW\PracticeZhilin2020\bin\Debug\PracticeZhilin2020.exe.config
 F:\program files\OpenServer\OpenServer\PROJECTS\C_SHARP_NEW\PracticeZhilin2020\bin\Debug\PracticeZhilin2020.exe
@@ -151,3 +150,5 @@ F:\program files\OpenServer\OpenServer\C#\C_SHARP_NEW\PracticeZhilin2020\obj\Deb
 F:\program files\OpenServer\OpenServer\C#\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.pdb
 F:\program files\OpenServer\OpenServer\C#\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.AdminForm.resources
 C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.AdminForm.resources
+C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.PlInfoForm.resources
+C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.TeamsForm.resources

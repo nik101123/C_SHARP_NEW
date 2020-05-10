@@ -67,8 +67,8 @@ namespace PracticeZhilin2020
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TestForm testForm = new TestForm(user_login);
-            testForm.Show();
+            TeamsForm teamsForm = new TeamsForm(user_login);
+            teamsForm.Show();
             Close();
 
         }
