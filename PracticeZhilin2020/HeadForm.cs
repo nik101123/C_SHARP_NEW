@@ -87,6 +87,21 @@ namespace PracticeZhilin2020
             Admin.Show();
             Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TopTeamsForm topteams = new TopTeamsForm();
+            topteams.Show();
+            Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MatchesForm matches = new MatchesForm();
+            matches.Show();
+            Close();
+
+        }
     }
 }
 
