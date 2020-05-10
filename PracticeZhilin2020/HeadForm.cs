@@ -16,8 +16,10 @@ namespace PracticeZhilin2020
     {
         string ul;
         private string user_login;
+        private string user_group;
         public HeadForm(string user_login)
         {
+            InitializeComponent();
             ul = user_login;
             if (user_login == "Guest")
             {
@@ -26,8 +28,11 @@ namespace PracticeZhilin2020
                 button3.Enabled = false;
                 button3.Visible = false;
             }
-
-            InitializeComponent();
+            if (user_group != "head_admin" | user_group != "team_admin")
+            {
+                button5.Enabled = false;
+                button5.Visible = false;
+            }
             this.user_login = user_login;
             string user_info,user_firstname,user_lastname,user_email;
             DB db = new DB();
@@ -40,7 +45,7 @@ namespace PracticeZhilin2020
                 user_firstname =reader["First_name"].ToString();
                 user_lastname = reader["Last_name"].ToString();
                 user_email = reader["email"].ToString();
-                user_info = user_login +" "+ user_firstname +" "+ user_lastname +" "+ user_email;
+                user_info = user_login +"\n"+ user_firstname +" "+ user_lastname;
                 db.closeConnection();
                 reader.Close();
                 User_label_info.Text = user_info;
@@ -70,7 +75,7 @@ namespace PracticeZhilin2020
         
         private void button3_Click(object sender, EventArgs e)
         {
-            TopPForm topPForm = new TopPForm();
+            TopPForm topPForm = new TopPForm(user_login);
             topPForm.Show();
             Close();
 

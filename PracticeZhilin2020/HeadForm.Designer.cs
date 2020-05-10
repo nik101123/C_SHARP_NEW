@@ -74,7 +74,7 @@
             this.User_label_info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.User_label_info.AutoSize = true;
             this.User_label_info.BackColor = System.Drawing.Color.Transparent;
-            this.User_label_info.Location = new System.Drawing.Point(6, 128);
+            this.User_label_info.Location = new System.Drawing.Point(3, 104);
             this.User_label_info.Name = "User_label_info";
             this.User_label_info.Size = new System.Drawing.Size(152, 17);
             this.User_label_info.TabIndex = 1;

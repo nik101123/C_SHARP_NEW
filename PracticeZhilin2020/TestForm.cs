@@ -18,6 +18,7 @@ namespace PracticeZhilin2020
         int count = -1;
         int DynamicButtonCount = 0;
         private Button button1;
+        private Button printbutton;
         private Label label1;
         int id_club;
         private string user_login;
@@ -100,6 +101,7 @@ namespace PracticeZhilin2020
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
             this.clubsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.printbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -136,6 +138,15 @@ namespace PracticeZhilin2020
             this.label1.Size = new System.Drawing.Size(260, 39);
             this.label1.TabIndex = 2;
             this.label1.Text = "Список команд";
+            //
+            // printbutton
+            //
+            this.printbutton.Location = new System.Drawing.Point(138, 445);
+            this.printbutton.Size = new System.Drawing.Size(54, 54);
+            this.printbutton.BackgroundImage = Image.FromFile("C:\\Users\\Aleksandr\\Downloads\\iconfinder_print_326675.png");
+            this.printbutton.BackgroundImageLayout = ImageLayout.Zoom;
+            this.printbutton.BackColor = Color.White;
+
             // 
             // TestForm
             // 
@@ -146,6 +157,7 @@ namespace PracticeZhilin2020
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.clubsPanel);
+            this.Controls.Add(this.printbutton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TestForm";
             this.Text = "Teams";
@@ -158,7 +170,6 @@ namespace PracticeZhilin2020
         {
             HeadForm headForm = new HeadForm(user_login);
             headForm.Show();
-            teaminfo.Close();
             Close();
             
         }

@@ -16,8 +16,10 @@ namespace PracticeZhilin2020
         private Panel[] PlayerPanel;    // Array of textboxes
         int count = 0;
         int DynamicButtonCount = 0;
-        public TopPForm()
+        private string user_login;
+        public TopPForm(string user_login)
         {
+            this.user_login = user_login;
             InitializeComponent();
             PlayerPanel = new Panel[100];
             DB db = new DB();
@@ -48,52 +50,82 @@ namespace PracticeZhilin2020
 
 
 
-            //team_name
+            //player_name
             Label nameLabel = new Label();
             nameLabel.Text = reader["first_name"].ToString();
             nameLabel.ForeColor = Color.Black;
-            nameLabel.Font = new Font("Century Gothic", 20, FontStyle.Bold);
-            nameLabel.Size = new System.Drawing.Size(660, 30);
+            nameLabel.Font = new Font("Century Gothic", 18);
+            nameLabel.Size = new System.Drawing.Size(300, 30);
             nameLabel.Location = new System.Drawing.Point(0, 0);
 
-            //place
+            //player_last_name
             Label infoLabel = new Label();
             infoLabel.Text = reader["last_name"].ToString();
             infoLabel.ForeColor = Color.Black;
-            infoLabel.Font = new Font("Century Gothic", 20);
-            infoLabel.Size = new System.Drawing.Size(660, 30);
+            infoLabel.Font = new Font("Century Gothic", 18, FontStyle.Bold);
+            infoLabel.Size = new System.Drawing.Size(300, 30);
             infoLabel.Location = new System.Drawing.Point(0, 35);
 
-            //goals
+            Label goalLabel = new Label();
+            goalLabel.Text = reader["goals"].ToString();
+            goalLabel.ForeColor = Color.Black;
+            goalLabel.Font = new Font("Century Gothic", 20);
+            goalLabel.Size = new System.Drawing.Size(80, 35);
+            goalLabel.Location = new System.Drawing.Point(390, 35);
+            goalLabel.TextAlign = ContentAlignment.MiddleLeft;
 
-            //button
-            string name = "" + DynamicButtonCount;
-            Button btnDynamicButton = new Button();
-            btnDynamicButton.Name = name;
-            btnDynamicButton.Text = "Подробнее";
-            btnDynamicButton.Cursor = Cursors.Hand;
-            btnDynamicButton.Size = new System.Drawing.Size(150, 30);
-            btnDynamicButton.Font = new Font("Century Gothic", 15);
-            btnDynamicButton.Location = new System.Drawing.Point(500, 35);
-            btnDynamicButton.Click += new EventHandler(this.club_Info_Click);
-            btnDynamicButton.BringToFront();
+            //assists
+            Label assistLabel = new Label();
+            assistLabel.Text = reader["assists"].ToString();
+            assistLabel.ForeColor = Color.Black;
+            assistLabel.Font = new Font("Century Gothic", 20);
+            assistLabel.Size = new System.Drawing.Size(80, 35);
+            assistLabel.Location = new System.Drawing.Point(470, 35);
+            assistLabel.TextAlign = ContentAlignment.MiddleLeft;
 
-            PlayerPanel[count].Controls.Add(btnDynamicButton);
+            //yellow_cards
+            Label ycLabel = new Label();
+            ycLabel.Text = reader["yellow_cards"].ToString();
+            ycLabel.ForeColor = Color.Black;
+            ycLabel.Font = new Font("Century Gothic", 20);
+            ycLabel.Size = new System.Drawing.Size(80, 35);
+            ycLabel.Location = new System.Drawing.Point(550, 35);
+            ycLabel.TextAlign = ContentAlignment.MiddleLeft;
+
+            //red_cards
+            Label rcLabel = new Label();
+            rcLabel.Text = reader["yellow_cards"].ToString();
+            rcLabel.ForeColor = Color.Black;
+            rcLabel.Font = new Font("Century Gothic", 20);
+            rcLabel.Size = new System.Drawing.Size(80, 35);
+            rcLabel.Location = new System.Drawing.Point(630, 35);
+            rcLabel.TextAlign = ContentAlignment.MiddleLeft;
+
+            //info
+            PictureBox info = new PictureBox();
+            info.Image = Image.FromFile("C:\\Users\\Aleksandr\\Downloads\\iconfinder_icon-ios7-information-outline_211761.png");
+            info.SizeMode = PictureBoxSizeMode.StretchImage;
+            info.Location = new System.Drawing.Point(300, 35);
+            info.Size = new System.Drawing.Size(35, 35);
+            info.Click += new EventHandler(this.club_Info_Click);
+
+
+
+
             PlayerPanel[count].Controls.Add(nameLabel);
             PlayerPanel[count].Controls.Add(infoLabel);
+            PlayerPanel[count].Controls.Add(goalLabel);
+            PlayerPanel[count].Controls.Add(assistLabel);
+            PlayerPanel[count].Controls.Add(ycLabel);
+            PlayerPanel[count].Controls.Add(rcLabel);
+            PlayerPanel[count].Controls.Add(info);
             playersPanel.Controls.Add(PlayerPanel[count]);
         }
 
         private void club_Info_Click(object sender, EventArgs e)
         {
-            Button dynamicButton = (sender as Button);
-            //int x = Int32.Parse(dynamicButton.Name);
-
-            MessageBox.Show("инфа");
-            /* roomid = Panel1[x - 1].Name;
-
-             About form = new About(roomid);
-             form.Show();*/
+            //PlayerInfoForm playerInfoForm = new PlayerInfoForm();
+            //playerInfoForm.Show();
         }
         private System.Windows.Forms.FlowLayoutPanel playersPanel;
         private System.Windows.Forms.Label nameForm;
@@ -107,6 +139,8 @@ namespace PracticeZhilin2020
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,7 +163,7 @@ namespace PracticeZhilin2020
             this.playersPanel.AutoScroll = true;
             this.playersPanel.Location = new System.Drawing.Point(0, 100);
             this.playersPanel.Name = "playersPanel";
-            this.playersPanel.Size = new System.Drawing.Size(900, 500);
+            this.playersPanel.Size = new System.Drawing.Size(900, 446);
             this.playersPanel.TabIndex = 0;
             // 
             // panel1
@@ -184,12 +218,35 @@ namespace PracticeZhilin2020
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.Location = new System.Drawing.Point(0, 546);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(138, 54);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Главное меню";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.Location = new System.Drawing.Point(144, 546);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(54, 54);
+            this.button6.TabIndex = 3;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // TopPForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(900, 600);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.nameForm);
             this.Controls.Add(this.playersPanel);
@@ -286,6 +343,13 @@ namespace PracticeZhilin2020
             reader.Close();
             db.closeConnection();
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            HeadForm headForm = new HeadForm(user_login);
+            headForm.Show();
+            Close();
         }
     }
 }
