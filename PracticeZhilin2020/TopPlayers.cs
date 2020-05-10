@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace PracticeZhilin2020
 {
-
     public partial class TopPForm : Form
     {
         private Panel[] ClubPanel;    // Array of textboxes
@@ -33,6 +32,7 @@ namespace PracticeZhilin2020
             db.closeConnection();
 
         }
+
         void write_panel(MySqlDataReader reader)
         {
 
@@ -45,6 +45,7 @@ namespace PracticeZhilin2020
             ClubPanel[count].BorderStyle = BorderStyle.FixedSingle;
             ClubPanel[count].Size = new System.Drawing.Size(665, 80);
             ClubPanel[count].Name = reader["Id"].ToString();
+
 
 
             //team_name
@@ -62,6 +63,8 @@ namespace PracticeZhilin2020
             infoLabel.Font = new Font("Century Gothic", 20);
             infoLabel.Size = new System.Drawing.Size(660, 30);
             infoLabel.Location = new System.Drawing.Point(0, 35);
+
+            //goals
 
             //button
             string name = "" + DynamicButtonCount;
@@ -100,10 +103,10 @@ namespace PracticeZhilin2020
             this.nameForm = new System.Windows.Forms.Label();
             this.clubsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,24 +144,14 @@ namespace PracticeZhilin2020
             this.panel1.Size = new System.Drawing.Size(400, 50);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // button4
             // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Голы";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(96, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Ассисты";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button4.Location = new System.Drawing.Point(191, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(100, 50);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Желтые карточки";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -169,14 +162,24 @@ namespace PracticeZhilin2020
             this.button3.Text = "Красные карточки";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button2
             // 
-            this.button4.Location = new System.Drawing.Point(191, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 50);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Желтые карточки";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(96, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 50);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Ассисты";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 50);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Голы";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TopPForm
             // 
@@ -190,12 +193,18 @@ namespace PracticeZhilin2020
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TopPForm";
             this.Text = "TopPlayers";
+            this.Load += new System.EventHandler(this.TopPForm_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TopPForm_Load(object sender, EventArgs e)
         {
 
         }

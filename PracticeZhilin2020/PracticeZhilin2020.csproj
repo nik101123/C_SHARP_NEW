@@ -51,6 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="TestForm1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="TopPlayers.cs">
       <SubType>Form</SubType>
     </Compile>

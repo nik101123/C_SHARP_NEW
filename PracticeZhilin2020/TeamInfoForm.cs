@@ -52,7 +52,7 @@ namespace PracticeZhilin2020
             }
             reader.Close();
             ClubManagerLabel.Text = club_manager.first_name + " " + club_manager.last_name +
-                " " + club_manager.phone + " " + club_manager.email;
+                "\n" + club_manager.phone + "\n" + club_manager.email;
             ObjectInfoSystem.Coach coach = new ObjectInfoSystem.Coach();
             command = new MySqlCommand("SELECT * FROM `coaches` WHERE `Id` = @c_i", db.getConnection());
             command.Parameters.Add("@c_i", MySqlDbType.VarChar).Value = team.coach_id;
@@ -62,10 +62,10 @@ namespace PracticeZhilin2020
                 coach.first_name = reader["first_name"].ToString();
                 coach.last_name = reader["last_name"].ToString();
                 coach.nationality = reader["nationality"].ToString();
-                coach.date_of_birth = reader["date_of_birth"].ToString();
+                coach.date_of_birth = reader["date_of_birth"].ToString().Substring(0,10);
             }
             reader.Close();
-            HeadCoachLabel.Text = coach.first_name +" " +coach.last_name + " " + coach.nationality + " " + coach.date_of_birth;
+            HeadCoachLabel.Text = coach.first_name +" " +coach.last_name + "\n" + coach.nationality + "\n" + coach.date_of_birth;
             ObjectInfoSystem.Player captain = new ObjectInfoSystem.Player();
             command = new MySqlCommand("SELECT * FROM `players` WHERE `Id` = @c_i", db.getConnection());
             command.Parameters.Add("@c_i", MySqlDbType.VarChar).Value = team.captain_id;
@@ -77,14 +77,14 @@ namespace PracticeZhilin2020
                 captain.nationality = reader["nationality"].ToString();
                 captain.positions = reader["positions"].ToString();
                 captain.work_foot = Char.Parse(reader["work_foot"].ToString());
-                captain.date_of_birth = reader["date_of_birth"].ToString();
+                captain.date_of_birth = reader["date_of_birth"].ToString().Substring(0,10);
                 /*    captain.yellow_cards = Int32.Parse(reader["yellow_cards"].ToString());
                       captain.red_cards = Int32.Parse(reader["red_cards"].ToString());
                       captain.goals_scored = Int32.Parse(reader["goal_scored"].ToString());
                       captain.asissts = Int32.Parse(reader["assists"].ToString());*/
             }
             ClubCaptainLabel.Text = captain.first_name + " " + captain.last_name +
-                " " + captain.nationality + " " + captain.positions + " " + captain.work_foot +" "+
+                "\n" + captain.nationality + "\n" + captain.positions + "\n" + captain.work_foot +"\n"+
                 captain.date_of_birth;
             reader.Close();
             ObjectInfoSystem.Player top_scorer = new ObjectInfoSystem.Player();
@@ -105,7 +105,7 @@ namespace PracticeZhilin2020
                       captain.asissts = Int32.Parse(reader["assists"].ToString());*/
             }
             BestScorerLabel.Text = top_scorer.first_name + " " + top_scorer.last_name +
-                " " + top_scorer.nationality + " " + top_scorer.positions + " " + top_scorer.work_foot + " " +
+                "\n" + top_scorer.nationality + "\n" + top_scorer.positions + "\n" + top_scorer.work_foot + "\n" +
                 top_scorer.date_of_birth +" Голов забил: "+ top_scorer.goals_scored;
             TeamsGoalScoredLabel.Text = "Голов забито: " + team.goal_scored;
             TeamsGoalConcededLabel.Text = "Голов пропущено: " + team.goal_conceded;
@@ -113,6 +113,16 @@ namespace PracticeZhilin2020
             TeamsLosesLabel.Text = "Поражений: " + team.loses_mathes;
             reader.Close();
             db.closeConnection();
+        }
+
+        private void TeamInfoForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClubCaptainLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

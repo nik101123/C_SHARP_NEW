@@ -14,10 +14,11 @@ namespace PracticeZhilin2020
 {
     public partial class HeadForm : Form
     {
+        private string user_login;
         public HeadForm(string user_login)
         {
             InitializeComponent();
-            
+            this.user_login = user_login;
             string user_info,user_firstname,user_lastname,user_email;
             DB db = new DB();
             MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `Login` = @u_l", db.getConnection());
@@ -51,17 +52,17 @@ namespace PracticeZhilin2020
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TestForm testForm = new TestForm();
+            TestForm testForm = new TestForm(user_login);
             testForm.Show();
-            Hide();
+            Close();
 
         }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
             TopPForm topPForm = new TopPForm();
             topPForm.Show();
-            Hide();
+            Close();
 
         }
     }

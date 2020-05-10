@@ -116,3 +116,4 @@ F:\program files\OpenServer\OpenServer\PROJECTS\C_SHARP_NEW\PracticeZhilin2020\o
 F:\program files\OpenServer\OpenServer\PROJECTS\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.exe
 F:\program files\OpenServer\OpenServer\PROJECTS\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.pdb
 F:\program files\OpenServer\OpenServer\PROJECTS\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.TeamInfoForm.resources
+C:\Users\Aleksandr\Desktop\C_SHARP_NEW\PracticeZhilin2020\obj\Debug\PracticeZhilin2020.TeamInfoForm.resources
