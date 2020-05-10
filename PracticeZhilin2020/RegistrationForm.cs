@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,6 +23,7 @@ namespace PracticeZhilin2020
             phoneTB.Text = "Телефон";
             LoginTB.Text = "Логин";
             PasswordTB.Text = "Пароль";
+            //string pattern = ("^\\+?\\d+[09]*$");
         }
 
         private void button_Login_Click(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace PracticeZhilin2020
                 return;
             if (emailTB.Text == "" || emailTB.Text == "Email")
                 return;
-            if (phoneTB.Text == "" || phoneTB.Text == "Телефон")
+            if (phoneTB.Text == "" || phoneTB.Text == "Телефон")//добавить регулярку
                 return;
             if (LoginTB.Text == "" || LoginTB.Text == "Логин")
                 return;

@@ -14,9 +14,10 @@ namespace PracticeZhilin2020
 
     public partial class TestForm : Form
     {
-        private Panel[] ClubPanel;    // Array of textboxes
-        int count = 0;
+        private Panel[] ClubPanel;    // Массив Панелей
+        int count = -1;
         int DynamicButtonCount = 0;
+        int id_club;
         public TestForm()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace PracticeZhilin2020
             ClubPanel[count].BackColor = Color.White;
             ClubPanel[count].BorderStyle = BorderStyle.FixedSingle;
             ClubPanel[count].Size = new System.Drawing.Size(665, 80);
-            ClubPanel[count].Name = reader["id"].ToString();
+            ClubPanel[count].Name = reader["Id"].ToString();
            
 
             //team_name
@@ -84,13 +85,11 @@ namespace PracticeZhilin2020
         private void club_Info_Click(object sender, EventArgs e)
         {
             Button dynamicButton = (sender as Button);
-            //int x = Int32.Parse(dynamicButton.Name);
-            
-            MessageBox.Show("инфа");
-           /* roomid = Panel1[x - 1].Name;
+            int x = Int32.Parse(dynamicButton.Name);
+            id_club = Int32.Parse(ClubPanel[x - 1].Name);
 
-            About form = new About(roomid);
-            form.Show();*/
+            TeamInfoForm teaminfo = new TeamInfoForm(id_club);
+            teaminfo.Show();
         }
         private System.Windows.Forms.FlowLayoutPanel clubsPanel;
         private void InitializeComponent()

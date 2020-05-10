@@ -22,7 +22,7 @@ namespace PracticeZhilin2020
             InitializeComponent();
             ClubPanel = new Panel[100];
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM clubs", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM players", db.getConnection());
             db.openConnection();
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -44,12 +44,12 @@ namespace PracticeZhilin2020
             ClubPanel[count].BackColor = Color.White;
             ClubPanel[count].BorderStyle = BorderStyle.FixedSingle;
             ClubPanel[count].Size = new System.Drawing.Size(665, 80);
-            ClubPanel[count].Name = reader["id"].ToString();
+            ClubPanel[count].Name = reader["Id"].ToString();
 
 
             //team_name
             Label nameLabel = new Label();
-            nameLabel.Text = reader["team_name"].ToString();
+            nameLabel.Text = reader["first_name"].ToString();
             nameLabel.ForeColor = Color.Black;
             nameLabel.Font = new Font("Century Gothic", 20, FontStyle.Bold);
             nameLabel.Size = new System.Drawing.Size(660, 30);
@@ -57,7 +57,7 @@ namespace PracticeZhilin2020
 
             //place
             Label infoLabel = new Label();
-            infoLabel.Text = reader["club_location"].ToString();
+            infoLabel.Text = reader["last_name"].ToString();
             infoLabel.ForeColor = Color.Black;
             infoLabel.Font = new Font("Century Gothic", 20);
             infoLabel.Size = new System.Drawing.Size(660, 30);

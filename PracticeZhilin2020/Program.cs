@@ -16,7 +16,7 @@ namespace PracticeZhilin2020
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TopPForm());
+            Application.Run(new StartForm());
         }
     }
 }

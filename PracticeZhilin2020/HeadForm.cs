@@ -48,6 +48,22 @@ namespace PracticeZhilin2020
             startForm.Show();
             Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TestForm testForm = new TestForm();
+            testForm.Show();
+            Hide();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TopPForm topPForm = new TopPForm();
+            topPForm.Show();
+            Hide();
+
+        }
     }
 }
 
