@@ -62,8 +62,10 @@
             this.TeamLogo.Location = new System.Drawing.Point(0, 0);
             this.TeamLogo.Name = "TeamLogo";
             this.TeamLogo.Size = new System.Drawing.Size(209, 162);
+            this.TeamLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.TeamLogo.TabIndex = 0;
             this.TeamLogo.TabStop = false;
+            this.TeamLogo.Click += new System.EventHandler(this.TeamLogo_Click);
             // 
             // label1
             // 

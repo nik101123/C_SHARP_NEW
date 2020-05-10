@@ -91,7 +91,7 @@ namespace PracticeZhilin2020
             Button dynamicButton = (sender as Button);
             int x = Int32.Parse(dynamicButton.Name);
             id_club = Int32.Parse(ClubPanel[x - 1].Name);
-            teaminfo = new TeamInfoForm(id_club);
+            teaminfo = new TeamInfoForm(id_club,user_login);
             teaminfo.Show();
         }
         private System.Windows.Forms.FlowLayoutPanel clubsPanel;

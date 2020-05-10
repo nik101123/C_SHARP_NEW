@@ -28,7 +28,7 @@ namespace PracticeZhilin2020
             public string club_location, club_info, creator_info, capitain_info, top_scorer_info, rudest_player_info, coach_info;
                    
             public int creator_id, captain_id, top_scorer_id, rudest_player_id, coach_id, 
-                winning_mathes, loses_mathes, draw_mathes, goal_scored, goal_conceded;
+                winning_mathes, loses_mathes, draw_mathes, goals_scored, goals_conceded;
         }
     }
 }

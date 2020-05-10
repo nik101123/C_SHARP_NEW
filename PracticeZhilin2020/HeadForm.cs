@@ -14,9 +14,19 @@ namespace PracticeZhilin2020
 {
     public partial class HeadForm : Form
     {
+        string ul;
         private string user_login;
         public HeadForm(string user_login)
         {
+            ul = user_login;
+            if (user_login == "Guest")
+            {
+                button1.Enabled = false;
+                button1.Visible = false;
+                button3.Enabled = false;
+                button3.Visible = false;
+            }
+
             InitializeComponent();
             this.user_login = user_login;
             string user_info,user_firstname,user_lastname,user_email;
@@ -64,6 +74,13 @@ namespace PracticeZhilin2020
             topPForm.Show();
             Close();
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AdminForm Admin = new AdminForm(ul);
+            Admin.Show();
+            Close();
         }
     }
 }

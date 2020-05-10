@@ -13,13 +13,13 @@ namespace PracticeZhilin2020
 {
     public partial class TopPForm : Form
     {
-        private Panel[] ClubPanel;    // Array of textboxes
+        private Panel[] PlayerPanel;    // Array of textboxes
         int count = 0;
         int DynamicButtonCount = 0;
         public TopPForm()
         {
             InitializeComponent();
-            ClubPanel = new Panel[100];
+            PlayerPanel = new Panel[100];
             DB db = new DB();
             MySqlCommand command = new MySqlCommand("SELECT * FROM players", db.getConnection());
             db.openConnection();
@@ -40,11 +40,11 @@ namespace PracticeZhilin2020
             DynamicButtonCount++;
 
             //panel
-            ClubPanel[count] = new Panel();
-            ClubPanel[count].BackColor = Color.White;
-            ClubPanel[count].BorderStyle = BorderStyle.FixedSingle;
-            ClubPanel[count].Size = new System.Drawing.Size(665, 80);
-            ClubPanel[count].Name = reader["Id"].ToString();
+            PlayerPanel[count] = new Panel();
+            PlayerPanel[count].BackColor = Color.White;
+            PlayerPanel[count].BorderStyle = BorderStyle.FixedSingle;
+            PlayerPanel[count].Size = new System.Drawing.Size(665, 80);
+            PlayerPanel[count].Name = reader["Id"].ToString();
 
 
 
@@ -78,10 +78,10 @@ namespace PracticeZhilin2020
             btnDynamicButton.Click += new EventHandler(this.club_Info_Click);
             btnDynamicButton.BringToFront();
 
-            ClubPanel[count].Controls.Add(btnDynamicButton);
-            ClubPanel[count].Controls.Add(nameLabel);
-            ClubPanel[count].Controls.Add(infoLabel);
-            clubsPanel.Controls.Add(ClubPanel[count]);
+            PlayerPanel[count].Controls.Add(btnDynamicButton);
+            PlayerPanel[count].Controls.Add(nameLabel);
+            PlayerPanel[count].Controls.Add(infoLabel);
+            playersPanel.Controls.Add(PlayerPanel[count]);
         }
 
         private void club_Info_Click(object sender, EventArgs e)
@@ -95,13 +95,13 @@ namespace PracticeZhilin2020
              About form = new About(roomid);
              form.Show();*/
         }
-        private System.Windows.Forms.FlowLayoutPanel clubsPanel;
+        private System.Windows.Forms.FlowLayoutPanel playersPanel;
         private System.Windows.Forms.Label nameForm;
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TopPForm));
             this.nameForm = new System.Windows.Forms.Label();
-            this.clubsPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.playersPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -121,16 +121,16 @@ namespace PracticeZhilin2020
             this.nameForm.Text = "Топ игроков";
             this.nameForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // clubsPanel
+            // playersPanel
             // 
-            this.clubsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.playersPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.clubsPanel.AutoScroll = true;
-            this.clubsPanel.Location = new System.Drawing.Point(0, 100);
-            this.clubsPanel.Name = "clubsPanel";
-            this.clubsPanel.Size = new System.Drawing.Size(900, 500);
-            this.clubsPanel.TabIndex = 0;
+            this.playersPanel.AutoScroll = true;
+            this.playersPanel.Location = new System.Drawing.Point(0, 100);
+            this.playersPanel.Name = "playersPanel";
+            this.playersPanel.Size = new System.Drawing.Size(900, 500);
+            this.playersPanel.TabIndex = 0;
             // 
             // panel1
             // 
@@ -152,6 +152,7 @@ namespace PracticeZhilin2020
             this.button4.TabIndex = 3;
             this.button4.Text = "Желтые карточки";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -161,6 +162,7 @@ namespace PracticeZhilin2020
             this.button3.TabIndex = 2;
             this.button3.Text = "Красные карточки";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -170,6 +172,7 @@ namespace PracticeZhilin2020
             this.button2.TabIndex = 1;
             this.button2.Text = "Ассисты";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -189,7 +192,7 @@ namespace PracticeZhilin2020
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.nameForm);
-            this.Controls.Add(this.clubsPanel);
+            this.Controls.Add(this.playersPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TopPForm";
             this.Text = "TopPlayers";
@@ -202,10 +205,86 @@ namespace PracticeZhilin2020
         private void button1_Click(object sender, EventArgs e)
         {
 
+            for (int i = count; i > 0; i--)
+                playersPanel.Controls.Remove(PlayerPanel[i]);
+
+
+            PlayerPanel = new Panel[100];
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM players ORDER BY goals DESC", db.getConnection());
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                write_panel(reader);
+            }
+            reader.Close();
+            db.closeConnection();
+
         }
 
         private void TopPForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = count; i > 0; i--)
+                playersPanel.Controls.Remove(PlayerPanel[i]);
+
+
+            PlayerPanel = new Panel[100];
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM players ORDER BY assists DESC", db.getConnection());
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                write_panel(reader);
+            }
+            reader.Close();
+            db.closeConnection();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            for (int i = count; i > 0; i--)
+                playersPanel.Controls.Remove(PlayerPanel[i]);
+
+
+            PlayerPanel = new Panel[100];
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM players ORDER BY yellow_cards DESC", db.getConnection());
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                write_panel(reader);
+            }
+            reader.Close();
+            db.closeConnection();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            for (int i = count; i > 0; i--)
+                playersPanel.Controls.Remove(PlayerPanel[i]);
+
+
+            PlayerPanel = new Panel[100];
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM players ORDER BY red_cards DESC", db.getConnection());
+            db.openConnection();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                write_panel(reader);
+            }
+            reader.Close();
+            db.closeConnection();
 
         }
     }
